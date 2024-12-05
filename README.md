@@ -1,5 +1,5 @@
 ## Objects do not disappear: Video object detection by single-frame object location anticipation (Windows Support)
-The official implementation of the ICCV 2023 paper:
+The windows version official implementation of the ICCV 2023 paper:
 [Objects do not disappear: Video object detection by single-frame object location anticipation](https://arxiv.org/abs/2308.04770).
 
 #### Abstract
@@ -22,7 +22,7 @@ if you get an error with numpy just install numpy version 1.x and install anythi
 cd cocoapi/PythonAPI
 make
 ```
-If you do not have make, download msys and run `pacman -S make` in the ucrt64 cmd then put `C:\msys64\usr\bin` or whatever the path is for you in your environment variables
+If you do not have make, download msys2 and run `pacman -S make` in the ucrt64 cmd then put `C:\msys64\usr\bin` or whatever the path is for you in your environment variables
 
 #### Training
 ```
