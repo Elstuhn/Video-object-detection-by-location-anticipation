@@ -1,5 +1,5 @@
-## Objects do not disappear: Video object detection by single-frame object location anticipation
-The official implementation of our ICCV 2023 paper:
+## Objects do not disappear: Video object detection by single-frame object location anticipation (Windows Support)
+The official implementation of the ICCV 2023 paper:
 [Objects do not disappear: Video object detection by single-frame object location anticipation](https://arxiv.org/abs/2308.04770).
 
 #### Abstract
@@ -16,6 +16,13 @@ conda activate efficientVOD
 conda install pytorch==1.7.0 torchvision==0.8.1 cudatoolkit=10.1 -c pytorch
 pip install -r requirements.txt
 ```
+if you get an error with numpy just install numpy version 1.x and install anything else necessary that is missing
+###### building pycocotools
+```
+cd cocoapi/PythonAPI
+make
+```
+If you do not have make, download msys and run `pacman -S make` in the ucrt64 cmd then put `C:\msys64\usr\bin` or whatever the path is for you in your environment variables
 
 #### Training
 ```
@@ -28,6 +35,17 @@ python3 train.py \
     [--dataset imagenetvid] \
     [--data-dir ../ILSVRC2015] \
 ```
+or
+```
+python3 train.py \
+    --use-cuda \
+    [--timestep 10] \
+    --iters -1 \
+    [--epochs 100] \
+    --lr-steps 51  \
+    [--dataset coco] \
+    [--data-dir ./dataset/coco] \
+```
 #### Evaluation
 ```
 python3 train.py \
@@ -38,6 +56,19 @@ python3 train.py \
     [--dataset imagenetvid] \
     [--data-dir ../ILSVRC2015] \
 
+```
+
+#### COCO dataset structure
+```
+- coco_folder
+|
+|-- annotations
+|    |---- instances_train.json
+|    |---- instances_val.json
+|
+|-- train (contains all train images)
+|
+|-- val (contains all validation images)
 ```
 
 ### Cite
